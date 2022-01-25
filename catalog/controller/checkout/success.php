@@ -10,6 +10,9 @@ class ControllerCheckoutSuccess extends Controller {
 			unset($this->session->data['shipping_methods']);
 			unset($this->session->data['payment_method']);
 			unset($this->session->data['payment_methods']);
+            // отсебятина
+            $name = $this->session->data['guest'];
+            //
 			unset($this->session->data['guest']);
 			unset($this->session->data['comment']);
 			unset($this->session->data['order_id']);
@@ -58,7 +61,9 @@ class ControllerCheckoutSuccess extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
-
+        // отсебятина
+        @$data['name'] = $name['firstname'];
+        //
 		$this->response->setOutput($this->load->view('common/success', $data));
 	}
 }
