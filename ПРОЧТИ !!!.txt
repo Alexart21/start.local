@@ -1,0 +1,12 @@
+Что бы совсем избавиться от поля email(Типичный заказ пиццы :)
+
+1. Удалить или закоментить в виде template/checkout/guest.twig поле email
+
+2. В контроллере controller/checkout/guest.php
+у меня поставлено условие 
+if(isset($this->request->post['email'])){
+                $this->session->data['guest']['email'] = $this->request->post['email'];
+            }
+что необязательно. Можно тупо удалить или закоментить все что касается email
+
+3. В контроллере system/library/mail.php в строке 119 поставил затык return true;
