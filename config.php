@@ -31,4 +31,4 @@ define('DB_PREFIX', 'oc_');
 
 //Отсебятина
 // Поле email сделал необязательным
-//define('NO_EMAIL', true);
+define('NO_EMAIL', true);

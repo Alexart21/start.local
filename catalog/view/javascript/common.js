@@ -142,6 +142,40 @@ $(document).ready(function() {
 	$(document).ajaxStop(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
+	/**/
+	/* фиксация верхнего меню */
+	function menu_fix() {
+		const h_hght = 500; // высота шапки
+		const h_mrg = 0; // отступ когда шапка уже не видна
+		$(function () {
+			let top = $(this).scrollTop(); // сколько проскролено
+			const menu = $('#menu-ul'); // блок меню
+			if ((top + h_mrg) > h_hght) { // включается "скролл-меню"
+				menu.css({
+					'top': h_mrg,
+					'position': 'fixed',
+					'background': '#eee',
+					'border': '1px solid #FD9638',
+					'color': '#222',
+					'z-index': '10'
+				});
+			} else {
+				menu.css({
+					'top': 0,
+					'position': 'relative',
+					'background': '',
+					'color': '',
+					'border': '',
+					'z-index': ''
+				});
+			}
+		});
+	}
+//
+	$(window).scroll(function () {
+		menu_fix(); // фиксация верхнего меню
+	});
+	/**/
 });
 
 // Cart add remove functions

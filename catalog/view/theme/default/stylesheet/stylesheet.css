@@ -1,3 +1,17 @@
+:root{
+	--logo-color: #FF0000;
+	--rouble-color: red;
+	--btn-hover: #313A3D;
+	--btn-color: #FD9638;
+	--menu-color: #ddd;
+}
+
+@font-face {
+	font-family: corpid;
+	src: url(/catalog/view/theme/default/stylesheet/fonts/corpid2.woff);
+	font-display: swap;
+}
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
@@ -9,6 +23,41 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	color: #444;
 }
+
+header{
+	margin-top: 2em;
+}
+
+.h1 {
+	font-size: 30px;
+	line-height: 42px;
+}
+
+.h2 {
+	font-size: 26px;
+	line-height: 38px;
+}
+
+.h3 {
+	font-size: 20px;
+	line-height: 32px;
+}
+
+.h4 {
+	font-size: 16px;
+	line-height: 28px;
+}
+
+.h5 {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.h6 {
+	font-size: 12px;
+	line-height: 24px;
+}
+
 /* default font size */
 .fa {
 	font-size: 14px;
@@ -72,13 +121,13 @@ div.required .control-label:before {
 /* Gradent to all drop down menus */
 .dropdown-menu li > a:hover {
 	text-decoration: none;
-	color: #ffffff;
-	background-color: #229ac8;
-	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
-	background-repeat: repeat-x;
+	color: #000 !important;
+	background-color: var(--menu-color);
+	/*background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);*/
+	/*background-repeat: repeat-x;*/
 }
 /* top */
-#top {
+/*#top {
 	background-color: #EEEEEE;
 	border-bottom: 1px solid #e2e2e2;
 	padding: 4px 0px 3px 0;
@@ -123,7 +172,7 @@ div.required .control-label:before {
 }
 #top-links a + a {
 	margin-left: 15px;
-}
+}*/
 /* logo */
 #logo {
 	margin: 0 0 10px 0;
@@ -141,6 +190,8 @@ div.required .control-label:before {
 	height: 40px;
 	line-height: 20px;
 	padding: 0 10px;
+	border-color: var(--logo-color) !important;
+	transform: scale(0.99);
 }
 #search .btn-lg {
 	font-size: 15px;
@@ -148,14 +199,22 @@ div.required .control-label:before {
 	padding: 10px 35px;
 	text-shadow: 0 1px 0 #FFF;
 }
+
+#search > span > button{
+	border-color: var(--logo-color) !important;
+}
 /* cart */
 #cart {
 	margin-bottom: 10px;
 }
 #cart > .btn {
-	font-size: 12px;
-	line-height: 18px;
+	font-size: inherit;
 	color: #FFF;
+	background: var(--btn-color) !important;
+	line-height: .2em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	/*font-weight: bold;*/
 }
 #cart.open > .btn {
 	background-image: none;
@@ -195,23 +254,36 @@ div.required .control-label:before {
 #cart .dropdown-menu li p {
 	margin: 20px 0;
 }
+
+.fa-shopping-cart{
+	font-size: 18px;
+}
+
 /* menu */
 #menu {
-	background-color: #229ac8;
-	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
-	background-repeat: repeat-x;
-	border-color: #1f90bb #1f90bb #145e7a;
+	/*background-color: var(--menu-color);*/
+	background-color: transparent;
 	min-height: 40px;
+	position: relative;
 }
 #menu .nav > li > a {
-	color: #fff;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	color: #000;
+	/*text-shadow: 0 -1px 0 var(--btn-color);*/
 	padding: 10px 15px 10px 15px;
 	min-height: 15px;
 	background-color: transparent;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
+
+#menu > div.collapse.navbar-collapse.navbar-ex1-collapse{
+	display: flex !important;
+	justify-content: center;
+}
+
 #menu .nav > li > a:hover, #menu .nav > li.open > a {
 	background-color: rgba(0, 0, 0, 0.1);
+	text-shadow: 0 -1px 0 #FF0000;
 }
 #menu .dropdown-menu {
 	padding-bottom: 0;
@@ -231,6 +303,7 @@ div.required .control-label:before {
 	color: #333333;
 	font-size: 12px;
 }
+
 #menu .dropdown-inner li a:hover {
 	color: #FFFFFF;
 }
@@ -247,9 +320,9 @@ div.required .control-label:before {
 #menu .see-all:hover, #menu .see-all:focus {
 	text-decoration: none;
 	color: #ffffff;
-	background-color: #229ac8;
-	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
-	background-repeat: repeat-x;
+	background-color: var(--menu-color);
+	/*background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);*/
+	/*background-repeat: repeat-x;*/
 }
 #menu #category {
 	float: left;
@@ -273,7 +346,7 @@ div.required .control-label:before {
 }
 #menu .btn-navbar:hover, #menu .btn-navbar:focus, #menu .btn-navbar:active, #menu .btn-navbar.disabled, #menu .btn-navbar[disabled] {
 	color: #ffffff;
-	background-color: #229ac8;
+	background-color: var(--menu-color);
 }
 @media (min-width: 768px) {
 	#menu .dropdown:hover .dropdown-menu {
@@ -346,7 +419,8 @@ footer h5 {
 .breadcrumb {
 	margin: 0 0 20px 0;
 	padding: 8px 0;
-	border: 1px solid #ddd;
+	/*border: 1px solid #ddd;*/
+	background-color: transparent !important;
 }
 .breadcrumb i {
 	font-size: 15px;
@@ -367,15 +441,21 @@ footer h5 {
 	position: absolute;
 	top: -3px;
 	right: -5px;
-	width: 26px;
-	height: 26px;
-	border-right: 1px solid #DDD;
-	border-bottom: 1px solid #DDD;
+	width: 2em;
+	height: 2em;
+	border-right: 2px solid var(--btn-color);
+	border-bottom: 2px solid var(--btn-color);
 	-webkit-transform: rotate(-45deg);
 	-moz-transform: rotate(-45deg);
 	-o-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 }
+
+.breadcrumb > li > a{
+	color: var(--btn-hover) !important;
+	text-decoration: none !important;
+}
+
 .pagination {
 	margin: 0;
 }
@@ -611,9 +691,9 @@ h2.price {
 	font-size: 28px;
 	display: inline-block;
 	border: 0px;
-	border-radius: 16px;
+	border-radius: 19px;
 	background: red;
-	padding: 5px 10px;
+	padding: 10px 20px;
 }
 
 
@@ -630,9 +710,9 @@ h2.price {
 	display: block;
 }
 .product-thumb .button-group {
-	border-top: 1px solid #ddd;
-	background-color: #eee;
-	overflow: auto;
+	/*border-top: 1px solid #ddd;*/
+	/*background-color: #eee;*/
+	/*overflow: auto;*/
 }
 .product-list .product-thumb .button-group {
 	border-left: 1px solid #ddd;
@@ -643,16 +723,7 @@ h2.price {
 	}
 }
 .product-thumb .button-group button {
-	width: 60%;
-	border: none;
-	display: inline-block;
-	float: left;
-	background-color: #eee;
-	color: #888;
-	line-height: 38px;
-	font-weight: bold;
-	text-align: center;
-	text-transform: uppercase;
+
 }
 .product-thumb .button-group button + button {
 	width: 20%;
@@ -764,15 +835,117 @@ h2.price {
     background-color: #df5c39;
 }
 /* Отсебятина */
-:root{
-	--rouble-color: red;
+.add{
+	width: 80% !important;
+	margin-bottom: .5em;
+	margin-left: 10%;
+	line-height: 3em !important;
+	font-size: 120%;
+	letter-spacing: 0.1em;
+	position: relative;
+	transition: top 333ms ease-in-out;
+	/*width: 60%;*/
+	border: none;
+	display: inline-block;
+	/*float: left;*/
+	background-color: var(--btn-color);
+	color: #fff;
+	/*line-height: 38px;*/
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
 }
 
-p.price{
-	/*font-size: 140%;*/
-	/*color: var(--rouble-color);*/
+.add:hover{
+	cursor: pointer !important;
+	background: var(--btn-hover) !important;
+	color: var(--btn-color) !important;
+	top: -5px;
+	box-shadow: 5px 5px 5px #999;
 }
 
-span.price-new{
-	/*color: var(--rouble-color);*/
+.btn-cart{
+	display: inline-block;
+	padding: 1em;
+	position: relative;
+	transition: top 333ms ease-in-out;
+	background-color: var(--btn-color);
+	color: #fff;
+	letter-spacing: 0.1em;
 }
+
+.btn-cart:hover{
+	background: var(--btn-hover) !important;
+	color: var(--btn-color) !important;
+	top: -3px;
+	box-shadow: 3px 3px 3px #999;
+}
+
+.btn-next{
+	width: 100% !important;
+	margin-right: 1em !important;
+}
+/*****/
+#accordion{
+	width: 50em;
+	max-width: 800px;
+}
+
+label.control-label{
+	font-weight: bold;
+}
+
+.form-group{
+	padding: .5em 1em;
+}
+
+.form-group input{
+	outline: none;
+	border: none;
+	border-bottom: 1px solid #003333;
+	border-bottom-left-radius: 20px;
+	box-shadow: 0 5px 5px -5px #999;
+	/*outline: none;*/
+	padding-left: 1em;
+	/*font-family: corpid;*/
+	font-weight: bold;
+	font-size: 120% !important;
+	letter-spacing: 0.1em;
+	/*width: 250px;*/
+	margin: 0 auto;
+}
+
+textarea[name=comment]{
+	box-shadow: 5px 5px 5px #999;
+}
+
+input[name=telephone]{
+	font-family: corpid;
+}
+
+.panel-heading{
+	background: #fff !important;
+	border: 1px solid var(--btn-color) !important;
+}
+
+.p_radio{}
+
+/* topMenu hover effects */
+.pulse {
+	transition: 0.25s;
+}
+
+.pulse:hover,
+.pulse:focus {
+	animation: pulse 1s;
+	box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+}
+
+@keyframes pulse {
+	0% {
+		/*box-shadow: 0 0 0 0 var(--logo-color);*/
+		box-shadow: 0 0 0 0 var(--rouble-color);
+	}
+}
+
+/*********/

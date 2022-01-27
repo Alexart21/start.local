@@ -39,11 +39,12 @@
           </tr>
           {% endfor %}
         </table>
-        <p class="text-right"><a href="{{ cart }}"><strong><i class="fa fa-shopping-cart"></i> {{ text_cart }}</strong></a>&nbsp;&nbsp;&nbsp;<a href="{{ checkout }}"><strong><i class="fa fa-share"></i> {{ text_checkout }}</strong></a></p>
+        <p class="text-right"><a class="btn-cart" href="{{ cart }}"><strong><i class="fa fa-shopping-cart"></i> {{ text_cart }}</strong></a>&nbsp;&nbsp;&nbsp;<a class="btn-cart" href="{{ checkout }}"><strong> {{ text_checkout }}</strong></a></p>
       </div>
     </li>
     {% else %}
     <li>
+      hhjhjhj
       <p class="text-center">{{ text_empty }}</p>
     </li>
     {% endif %}
