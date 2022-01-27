@@ -883,8 +883,12 @@ h2.price {
 
 .btn-next{
 	width: 100% !important;
+}
+
+.pull-right{
 	margin-right: 1em !important;
 }
+
 /*****/
 #accordion{
 	width: 50em;
@@ -955,5 +959,17 @@ input[name=telephone]{
 	left: calc(100%/2 - 30px);
 	top: calc(100%/2 - 30px);
 	display: none;
+}
+
+#overlay {
+    /*display: none;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background-color: #474b58;
+    opacity: .5;
 }
 

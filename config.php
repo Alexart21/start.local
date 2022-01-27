@@ -30,5 +30,3 @@ define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');
 
 //Отсебятина
-// Поле email сделал необязательным
-//define('NO_EMAIL', true);
