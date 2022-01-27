@@ -6,10 +6,10 @@ define('HTTP_SERVER', 'http://start.local/');
 define('HTTPS_SERVER', 'http://start.local/');
 
 // DIR
-define('DIR_APPLICATION', 'D:/OpenServer/domains/start.local/catalog/');
-define('DIR_SYSTEM', 'D:/OpenServer/domains/start.local/system/');
-define('DIR_IMAGE', 'D:/OpenServer/domains/start.local/image/');
-define('DIR_STORAGE', 'D:/OpenServer/domains/storage_start/');
+define('DIR_APPLICATION', __DIR__ . '/catalog/');
+define('DIR_SYSTEM', __DIR__ . '/system/');
+define('DIR_IMAGE', __DIR__ . '/image/');
+define('DIR_STORAGE', __DIR__ . '/../storage_start/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
@@ -31,4 +31,4 @@ define('DB_PREFIX', 'oc_');
 
 //Отсебятина
 // Поле email сделал необязательным
-define('NO_EMAIL', true);
+//define('NO_EMAIL', true);

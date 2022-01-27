@@ -1,3 +1,13 @@
-В поле email приходит затык вида noemail@site.ru
-изменения только в виде пока catalog/view/theme/default/template/checkout/guest.twig
-в строке 28-30
+ЧТОБЫ ИЗБАВИТЬСЯ от поля email в форме подтверждения заказа
+
+1. В БД в таблице `order` поле email сделать по умолчанию null 
+
+2. В виде catalog/view/theme/default/template/checkout/guest.twig инпут с полем email делаем display:none и ставим затык value=noemail@site.ru
+строка 28-30
+
+3. В модели catalog/model/checkout/order.php добавляем проверку в строках 4-10.
+Где происходит запись в таблицу `order` (строка 11) не забудь переменную $email.
+
+4. Делаем затык в файле system/library/mail.php строки 118-122
+
+ВСЕ! Можно ограничиться только пунктом 2.Тогда всюду будет фигурировать email клиента noemail@site.ru А так пусто и в базе и в админке и в накладных.
