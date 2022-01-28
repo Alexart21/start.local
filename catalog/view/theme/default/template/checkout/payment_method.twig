@@ -2,14 +2,16 @@
 <div class="alert alert-warning alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
 {% endif %}
 {% if payment_methods %}
-<p>{{ text_payment_method }}</p>
+<h3>{{ text_payment_method }}</h3>
 {% for payment_method in payment_methods %}
-<div class="radio">
+<div class="p-radio">
   <label>{% if payment_method.code == code or not code %}
     {% set code = payment_method.code %}
-    <input class="p_radio" type="radio" name="payment_method" value="{{ payment_method.code }}" checked="checked" />
+    <input type="radio" name="payment_method" value="{{ payment_method.code }}" checked="checked" />
+      <div class="check"></div>
     {% else %}
-    <input class="p_radio" type="radio" name="payment_method" value="{{ payment_method.code }}" />
+    <input type="radio" name="payment_method" value="{{ payment_method.code }}" />
+      <div class="check"></div>
     {% endif %}
     {{ payment_method.title }}
     {% if payment_method.terms %}
@@ -18,20 +20,25 @@
 </div>
 {% endfor %}
 {% endif %}
-<p><strong>{{ text_comments }}</strong></p>
+<p><h4>{{ text_comments }}</h4></p>
 <p>
   <textarea name="comment" rows="8" class="form-control">{{ comment }}</textarea>
 </p>
 {% if text_agree %}
 <div class="buttons">
-  <div class="pull-right" style="margin-right: 1em">{{ text_agree }}
+  {{ text_agree }}
+  <div class="pull-right" style="margin-right: 1em">
+    <div class="squaredTwo">
     {% if agree %}
-    <input type="checkbox" name="agree" value="1" checked="checked" />
+    <input type="checkbox" name="agree" id="agree" value="1" checked="checked" />
+      <label for="agree"></label>
     {% else %}
-    <input type="checkbox" name="agree" value="1" checked="checked" />
+    <input type="checkbox" name="agree" id="agree" value="1" checked="checked" />
+      <label for="agree"></label>
     {% endif %}
-    &nbsp;
-    <input type="button" value="{{ button_continue }}" id="button-payment-method" data-loading-text="{{ text_loading }}" class="add" style="max-width: 10em !important;display: inline !important;" />
+    &nbsp;</div>
+    <br>
+    <input type="button" value="{{ button_continue }}" id="button-payment-method" data-loading-text="{{ text_loading }}" class="add" style="width: 10em !important;" />
   </div>
 </div>
 {% else %}

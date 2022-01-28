@@ -14,10 +14,14 @@
       {% set class = 'col-sm-12' %}
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}
+      {% if name and heading_title %}
       <h1>Спасибо, {{ name }}, {{ heading_title }}</h1>
+      {% else %}
+        <h1>{{ heading_title }}</h1>
+      {% endif %}
       {{ text_message }}
       <div class="buttons">
-        <div class="pull-right"><a href="{{ continue }}" class="add btn-next">{{ button_continue }}</a></div>
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-cart">{{ button_continue }}</a></div>
       </div>
       {{ content_bottom }}</div>
     {{ column_right }}</div>
