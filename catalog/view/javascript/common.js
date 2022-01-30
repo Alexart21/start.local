@@ -543,8 +543,37 @@ $(document).ready(function() {
 	$(document).ajaxStop(function() {
 		stopLoader(loader);
 	});
+	/* Если цена более тысячи вставляем разделитель между цифрами "узкий пробел &thinsp;" */
+	/*const newPrice = document.getElementsByClassName('price-new');
+	recalc(newPrice);
+	const price = document.getElementsByClassName('price');
+	recalc(price);
+	const oldPrice = document.getElementsByClassName('price-old');
+	recalc(oldPrice);*/
 });
-//
+// вставка "узкого пробела"
+/*function recalc(price) {
+	if (price){
+		let i = 0;
+		while (price[i]){
+			let priceAll = price[i].firstChild.data;
+			priceAll = priceAll.trim();
+			let priceLength = priceAll.length - 2;
+			let manySymbol = priceAll.substring(priceLength); // символ рубля с пробелом перед ним
+			let strLenght = priceAll.lenght;
+			if(priceLength > 3){
+				let real = priceAll.slice(0, priceLength); //
+				let thousand = real.slice(0, priceLength - 3); // тысячи
+				let rouble = real.slice(priceLength - 3); // рубли
+				let result = thousand + '&thinsp;' + rouble + manySymbol;
+				price[i].innerHTML = result;
+
+			}
+			i++;
+		}
+	}
+}*/
+
 function startLoader(elem) {
 	showOverlay();
 	document.body.style.cursor = 'progress';
@@ -564,4 +593,4 @@ function showOverlay() {
 function hideOverlay() {
 	$('#overlay').remove();
 }
-/**/
+

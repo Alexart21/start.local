@@ -138,9 +138,9 @@
               <h2>{{ price }}</h2>
             </li>
             {% else %}
-            <li><span style="text-decoration: line-through;">{{ price }}</span></li>
+            <li><span class="price-old">{{ price }}</span></li>
             <li>
-              <h2>{{ special }}</h2>
+                <span class="price-new">{{ special }}</span>
             </li>
             {% endif %}
             {% if tax %}
@@ -275,7 +275,7 @@
             {% endif %}
             <div class="form-group">
               <label class="control-label" for="input-quantity">{{ entry_qty }}</label>
-              <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
+              <input type="number" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
               <input type="hidden" name="product_id" value="{{ product_id }}" />
               <br/>
               <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="add">{{ button_cart }}</button>

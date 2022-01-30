@@ -8,11 +8,11 @@ define('HTTPS_SERVER', 'http://start.local/admin/');
 define('HTTPS_CATALOG', 'http://start.local/');
 
 // DIR
-define('DIR_APPLICATION', __DIR__ . '/../admin/');
-define('DIR_SYSTEM', __DIR__ . '/../system/');
-define('DIR_IMAGE', __DIR__ . '/../image/');
-define('DIR_STORAGE', __DIR__ . '/../../storage_start/');
-define('DIR_CATALOG', __DIR__ . '/../catalog/');
+define('DIR_APPLICATION', normalizePath(__DIR__ . '/../admin/'));
+define('DIR_SYSTEM', normalizePath(__DIR__ . '/../system/'));
+define('DIR_IMAGE', normalizePath(__DIR__ . '/../image/'));
+define('DIR_STORAGE', normalizePath(__DIR__ . '/../../storage_start/'));
+define('DIR_CATALOG', normalizePath(__DIR__ . '/../catalog/'));
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/template/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
@@ -34,3 +34,4 @@ define('DB_PREFIX', 'oc_');
 
 // OpenCart API
 define('OPENCART_SERVER', 'https://www.opencart.com/');
+//die(DIR_IMAGE);
