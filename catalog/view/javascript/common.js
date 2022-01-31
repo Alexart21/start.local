@@ -543,16 +543,16 @@ $(document).ready(function() {
 	$(document).ajaxStop(function() {
 		stopLoader(loader);
 	});
-	/* Если цена более тысячи вставляем разделитель между цифрами "узкий пробел &thinsp;" */
-	/*const newPrice = document.getElementsByClassName('price-new');
+	 //Если цена более тысячи вставляем разделитель между цифрами "узкий пробел &thinsp;"
+	const newPrice = document.getElementsByClassName('price-new');
 	recalc(newPrice);
 	const price = document.getElementsByClassName('price');
 	recalc(price);
 	const oldPrice = document.getElementsByClassName('price-old');
-	recalc(oldPrice);*/
+	recalc(oldPrice);
 });
 // вставка "узкого пробела"
-/*function recalc(price) {
+function recalc(price) {
 	if (price){
 		let i = 0;
 		while (price[i]){
@@ -572,7 +572,7 @@ $(document).ready(function() {
 			i++;
 		}
 	}
-}*/
+}
 
 function startLoader(elem) {
 	showOverlay();

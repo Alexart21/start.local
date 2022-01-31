@@ -1016,3 +1016,9 @@ html[dir="rtl"] .text-right {
         float: left !important;
     }
 }
+
+/* Отсебятина */
+.navbar-brand > img {
+    transform: scale(.55);
+    margin-top: -35px;
+}

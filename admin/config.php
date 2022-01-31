@@ -1,11 +1,15 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://start.local/admin/');
-define('HTTP_CATALOG', 'http://start.local/');
+//define('HTTP_SERVER', 'http://start.local/admin/');
+define('HTTP_SERVER', 'http://' . $_SERVER['HTTP_HOST'] . '/admin/');
+//define('HTTP_CATALOG', 'http://start.local/');
+define('HTTP_CATALOG', 'http://' . $_SERVER['HTTP_HOST'] . '/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://start.local/admin/');
-define('HTTPS_CATALOG', 'http://start.local/');
+//define('HTTPS_SERVER', 'http://start.local/admin/');
+define('HTTPS_SERVER', 'http://' . $_SERVER['HTTP_HOST'] . '/admin/');
+//define('HTTPS_CATALOG', 'http://start.local/');
+define('HTTPS_CATALOG', 'http://' . $_SERVER['HTTP_HOST'] . '/');
 
 // DIR
 define('DIR_APPLICATION', normalizePath(__DIR__ . '/../admin/'));
