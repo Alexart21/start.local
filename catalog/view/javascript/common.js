@@ -150,6 +150,7 @@ $(document).ready(function() {
 		$(function () {
 			let top = $(this).scrollTop(); // сколько проскролено
 			const menu = $('#menu-ul'); // блок меню
+			const call = $('.call-out'); // виджет обратного звонка
 			if ((top + h_mrg) > h_hght) { // включается "скролл-меню"
 				menu.css({
 					'top': h_mrg,
@@ -159,6 +160,9 @@ $(document).ready(function() {
 					'color': '#222',
 					'z-index': '10'
 				});
+				call.css({
+					'visibility': 'visible',
+				});
 			} else {
 				menu.css({
 					'top': 0,
@@ -167,6 +171,9 @@ $(document).ready(function() {
 					'color': '',
 					'border': '',
 					'z-index': ''
+				});
+				call.css({
+					'visibility': '',
 				});
 			}
 		});
