@@ -812,3 +812,20 @@ $(document).delegate('#button-payment-method', 'click', function() {
 });
 //--></script>
 {{ footer }}
+<script>
+    // отсебятина
+    /* Анимация и оверлей при AJAX запросах */
+    // $(document).ready(function () {
+        const loader = $('#loader');
+
+        $(document).ajaxStart(function () {
+            startLoader(loader);
+            showOverlay();
+        });
+        //
+        $(document).ajaxStop(function () {
+            stopLoader(loader);
+            hideOverlay();
+        });
+    // });
+</script>

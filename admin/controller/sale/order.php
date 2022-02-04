@@ -1868,4 +1868,8 @@ class ControllerSaleOrder extends Controller {
 
 		$this->response->setOutput($this->load->view('sale/order_shipping', $data));
 	}
+
+	public function clear(){
+	    die('clear');
+    }
 }

@@ -691,10 +691,11 @@ h2.price {
 	color: #fff;
 	font-size: 28px;
 	display: inline-block;
-	border: 0px;
+	border: 1px solid red;
 	border-radius: 19px;
 	background: red;
 	padding: 10px 20px;
+	box-shadow: 0 0 20px inset #fff;
 }
 
 
@@ -1140,16 +1141,84 @@ input[name=telephone]{
 .contact-form{
 	max-width: 800px !important;
 }
-
-input[type=number]{
+/**/
+/*input[type=number]{
 	border-radius: 0;
 	border: 1px solid #222;
 	width: 6em;
+}*/
+.input-number {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #E5E8EE;
+    box-sizing: border-box;
+    border-radius: 6px;
+    color: #424348;
+    font-size: 14px;
+    text-align: center;
+    width: 8em !important;
 }
 
-#product input[type=number]{
-	margin-left: 0;
+.input-number .fa-redo-alt{
+    transform: rotateX(-180deg);
 }
+
+.recalc{
+	/*background: var(--btn-color);*/
+	background: #fff;
+	color: var(--btn-color);
+}
+
+.recalc:hover{
+	background-color: #fff !important;
+}
+
+.recalc:hover i{
+	color: var(--btn-color) !important;
+}
+
+.input-number__input {
+    background: #E5E8EE;
+    width: 3em;
+    height: 32px;
+    border: inherit !important;
+	border-radius: 0 !important;
+    /*padding: 8px;*/
+    text-align: center;
+    display: block;
+	/*padding: .5em;*/
+}
+
+.input-number__minus,
+.input-number__plus {
+    width: 1em;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	text-align: center;
+    cursor: pointer;
+    user-select: none;
+	font-weight: bold;
+}
+
+.input-number__minus{
+	padding-left: 1em;
+}
+
+.input-number__plus{
+	padding-right: 1em;
+}
+/**/
+.tooltip-inner{
+    font-size: medium;
+    color: red !important;
+    background-color: #ddd !important;
+    border: 1px solid #222;
+    padding: .5em !important;
+}
+/**/
 
 #modalFeedback .modal-content{
 	width: 50% !important;

@@ -16,10 +16,10 @@ class ControllerExtensionCaptchaGoogleV3 extends Controller {
 
 		$data['site_key'] = $this->config->get('captcha_googlev3_key');
 		$data['hide_mode'] = $this->config->get('captcha_googlev3_hide');
-		$data['route'] = $this->request->get['route'];
+		@$data['route'] = $this->request->get['route'];
 		$data['action'] = '';
 
-		$parts = explode('/', $this->request->get['route']);
+		@$parts = explode('/', $this->request->get['route']);
 		foreach ($parts as $part) {
 			$data['action'] .= ucfirst(str_replace('_', '', $part));
 		}
