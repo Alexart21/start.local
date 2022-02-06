@@ -152,7 +152,7 @@ $(document).ready(function () {
         $(function () {
             let top = $(this).scrollTop(); // сколько проскролено
             const menu = $('#menu-ul'); // блок меню
-            const call = $('.call-out'); // виджет обратного звонка
+            const call = $('.block_with_feedback'); // виджет обратного звонка
             if ((top + h_mrg) > h_hght) { // включается "скролл-меню"
                 menu.css({
                     'top': h_mrg,
@@ -604,11 +604,13 @@ function recalc(price) {
 }
 
 function startLoader(elem) {
+    // console.log('start');
     document.body.style.cursor = 'progress';
     elem.show();
 }
 
 function stopLoader(elem) {
+    // console.log('stop');
     document.body.style.cursor = 'default';
     elem.hide();
 }

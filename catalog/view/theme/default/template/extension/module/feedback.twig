@@ -5,7 +5,12 @@
   {% if text_main %}
   <p>{{ text_main }}</p>
   {% endif %}#}
-  <div class="call-out" id="button_feedback" data-toggle="modal" data-mytooltip="tooltip" data-target="#modalFeedback" data-original-title="Заказ обратного звонка"><span class="fa fa-phone-volume"></span></div>
+  <div class="callback-bt" id="button_feedback" data-toggle="modal"  data-target="#modalFeedback">
+    <div class="text-call">
+    <i class="fa fa-phone-volume"></i>
+      <span>Заказать<br>звонок</span>
+    </div>
+  </div>
 </div>
 <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="modalFeedbackLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
