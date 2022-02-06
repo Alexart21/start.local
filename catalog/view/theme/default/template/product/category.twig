@@ -92,6 +92,9 @@
       <div class="row"> {% for product in products %}
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
+            {% if product.special %}
+              <div class="percent">-{{ product.percent }}%</div>
+            {% endif %}
             <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
             <div>
               <div class="caption">
@@ -131,4 +134,14 @@
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>
-{{ footer }} 
+{{ footer }}
+<script>
+  const loader = $('#loader');
+  $(document).ajaxStart(function () {
+    startLoader(loader);
+  });
+  //
+  $(document).ajaxStop(function () {
+    stopLoader(loader);
+  });
+</script>

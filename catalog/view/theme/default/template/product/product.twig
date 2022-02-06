@@ -619,4 +619,14 @@
         });
     });
     //--></script>
-{{ footer }} 
+{{ footer }}
+<script>
+    const loader = $('#loader');
+    $(document).ajaxStart(function () {
+        startLoader(loader);
+    });
+    //
+    $(document).ajaxStop(function () {
+        stopLoader(loader);
+    });
+</script>

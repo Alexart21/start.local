@@ -4,6 +4,7 @@
 	--btn-hover: #313A3D;
 	--btn-color: #FD9638;
 	--menu-color: #ddd;
+	--red-color: #FF0000;
 }
 
 @font-face {
@@ -633,7 +634,7 @@ footer h5 {
 	display: block;
 }
 .product-thumb .image a:hover {
-	opacity: 0.8;
+	/*opacity: 0.8;*/
 }
 .product-thumb .image img {
 	margin-left: auto;
@@ -712,7 +713,7 @@ h2.price {
 	display: inline-block;
 	border: 0;
 	border-radius: 19px;
-	background: red;
+	background: var(--red-color);
 	padding: 10px 20px;
 	box-shadow: 0 0 20px inset #fff;
 }
@@ -891,7 +892,7 @@ h2.price {
 	font-size: 120%;
 	letter-spacing: 0.1em;
 	position: relative;
-	transition: top 333ms ease-in-out;
+	transition: all 100ms ease-in-out;
 	/*width: 60%;*/
 	border: none;
 	display: inline-block;
@@ -902,6 +903,7 @@ h2.price {
 	font-weight: bold;
 	text-align: center;
 	text-transform: uppercase;
+    top: 0;
 }
 
 .add:hover{
@@ -910,6 +912,7 @@ h2.price {
 	color: var(--btn-color) !important;
 	top: -5px;
 	box-shadow: 5px 5px 5px #999;
+	transition: all ease-in-out 300ms;
 }
 
 .btn-cart{
@@ -1232,7 +1235,7 @@ input[name=telephone]{
 /**/
 .tooltip-inner{
     font-size: medium;
-    color: red !important;
+    color: var(--red-color) !important;
     background-color: #ddd !important;
     border: 1px solid #222;
     padding: .5em !important;
@@ -1389,7 +1392,7 @@ input[name=telephone]{
 	width: 80px;
     /*background: var(--btn-color);*/
     background: #eee;
-    color: red;
+    color: var(--red-color);
 	/*border-bottom: 2px solid red;*/
     font-size: 18px;
     letter-spacing: 2px;
@@ -1399,4 +1402,13 @@ input[name=telephone]{
     font-family: gteBold;
 	transform: rotate(-45deg);
     z-index: 2;
+}
+
+.product-thumb img{
+	transition: transform ease 1s;
+}
+
+.product-thumb img:hover{
+	transform: scale(1.2);
+	transition: transform ease 600ms;
 }

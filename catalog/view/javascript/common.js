@@ -244,7 +244,10 @@ var cart = {
                     setTimeout(function () {
                         $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
                     }, 100);
-
+                    //
+                    // console.log('here');
+                    // setTimeout($('.alert').remove(), 15000);
+                    //
                     $('html, body').animate({scrollTop: 0}, 'slow');
 
                     $('#cart > ul').load('index.php?route=common/cart/info ul li');
@@ -578,6 +581,7 @@ $(document).ready(function () {
     recalc(price);
     const oldPrice = document.getElementsByClassName('price-old');
     recalc(oldPrice);
+    rouble(price);
 });
 
 // вставка "узкого пробела"
@@ -597,6 +601,23 @@ function recalc(price) {
                 let result = thousand + '&thinsp;' + rouble + manySymbol;
                 price[i].innerHTML = result;
 
+            }
+            i++;
+        }
+    }
+}
+// окрашиваем знак рубля там где цена только одна.(нет старой и новой цен)
+function rouble(price){
+    if(price){
+        let i = 0;
+        while (price[i]) {
+            if(!price[i].firstChild.nextSibling){
+                let str = price[i].firstChild.data;
+                let cnt = str.length;
+                let left = str.slice(0, cnt-1);
+                let rub = str[str.length - 1];
+                let res = left + '<span style="color:red">' + rub + '</span>';
+                price[i].innerHTML = res;
             }
             i++;
         }
