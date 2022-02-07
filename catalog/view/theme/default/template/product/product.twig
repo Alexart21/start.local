@@ -145,7 +145,7 @@
                         <ul class="list-unstyled">
                             {% if not special %}
                                 <li>
-                                    <h2>{{ price }}</h2>
+                                    <h2 class="price">{{ price }}</h2>
                                 </li>
                             {% else %}
                                 <li><span class="price-old">{{ price }}</span></li>
@@ -482,13 +482,16 @@
                 }
 
                 if (json['success']) {
-                    $('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                    // $('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
                     $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 
                     $('html, body').animate({scrollTop: 0}, 'slow');
 
                     $('#cart > ul').load('index.php?route=common/cart/info ul li');
+                    // отсебятина
+                    // При добавлении товара в корзину не показываем bootstrap alert а открываем корзину
+                    $('#cart').addClass('open');
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {

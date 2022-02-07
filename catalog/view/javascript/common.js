@@ -238,15 +238,14 @@ var cart = {
                 }
 
                 if (json['success']) {
-                    $('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-
+                    // $('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
                     // Need to set timeout otherwise it wont update the total
                     setTimeout(function () {
                         $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
                     }, 100);
-                    //
-                    // console.log('here');
-                    // setTimeout($('.alert').remove(), 15000);
+                    // отсебятина
+                    // При добавлении товара в корзину не показываем bootstrap alert а открываем корзину
+                    $('#cart').addClass('open');
                     //
                     $('html, body').animate({scrollTop: 0}, 'slow');
 
@@ -575,49 +574,37 @@ $(document).delegate('.agree', 'click', function (e) {
 /**/
 $(document).ready(function () {
     //Если цена более тысячи вставляем разделитель между цифрами "узкий пробел &thinsp;"
+    // так же можно окрасить знак рубля
     const newPrice = document.getElementsByClassName('price-new');
-    recalc(newPrice);
+    recalc(newPrice, '#dbd5d5');
     const price = document.getElementsByClassName('price');
-    recalc(price);
-    const oldPrice = document.getElementsByClassName('price-old');
-    recalc(oldPrice);
-    rouble(price);
+    recalc(price, '#b8a9a9');
 });
 
 // вставка "узкого пробела"
-function recalc(price) {
-    if (price) {
+function recalc(price, manyColor) {
+    if (price.length) {
         let i = 0;
         while (price[i]) {
             let priceAll = price[i].firstChild.data;
             priceAll = priceAll.trim();
             let priceLength = priceAll.length - 2;
-            let manySymbol = priceAll.substring(priceLength); // символ рубля с пробелом перед ним
-            let strLenght = priceAll.lenght;
+            let manySymbol = priceAll.substring(priceLength);  // символ рубля с пробелом перед ним
+            let res;
+            manySymbol = '<span style="color: ' + manyColor + '">' + manySymbol + '</span>';
+            // let strLenght = priceAll.lenght;
             if (priceLength > 3) {
                 let real = priceAll.slice(0, priceLength); //
                 let thousand = real.slice(0, priceLength - 3); // тысячи
                 let rouble = real.slice(priceLength - 3); // рубли
-                let result = thousand + '&thinsp;' + rouble + manySymbol;
-                price[i].innerHTML = result;
-
-            }
-            i++;
-        }
-    }
-}
-// окрашиваем знак рубля там где цена только одна.(нет старой и новой цен)
-function rouble(price){
-    if(price){
-        let i = 0;
-        while (price[i]) {
-            if(!price[i].firstChild.nextSibling){
-                let str = price[i].firstChild.data;
-                let cnt = str.length;
-                let left = str.slice(0, cnt-1);
-                let rub = str[str.length - 1];
-                let res = left + '<span style="color:red">' + rub + '</span>';
+                res = thousand + '&thinsp;' + rouble + manySymbol;
                 price[i].innerHTML = res;
+            }else{
+                let sum = priceAll.slice(0, priceLength);
+                if(sum){
+                    res = sum + manySymbol;
+                    price[i].innerHTML = res;
+                }
             }
             i++;
         }
